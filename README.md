@@ -1,1 +1,1 @@
-# Operating-Systems
+# (И)ДЗ по ОС
