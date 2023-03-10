@@ -10,3 +10,4 @@
 ```bash
 ./client.out & ./server.out && fg
 ```
+![screenshot](https://github.com/AndreyChizhovD/Operating-Systems/blob/9b3c08bb3bc9dc07a61ff308148e9bd9d5d326b0/hw6/one%20terminal%20window.png)
