@@ -19,14 +19,8 @@ int main(int argc, char **argv) {
 
     int fs[2]; // 1 --> 2
     int st[2]; // 2 --> 3
-    if (pipe(fs) < 0) {
-        printf("Error opening pipe\n");
-        exit(-1);
-    }
-    if (pipe(st) < 0) {
-        printf("Error opening pipe\n");
-        exit(-1);
-    }
+    pipe(fs);
+    pipe(st);
 
     int size;
     int process1 = fork();
