@@ -1,5 +1,7 @@
 #!/bin/bash
 
+read input
+read output
 gcc 4.c
-./a.out input.txt output.txt
+./a.out $input $output
 rm a.out
