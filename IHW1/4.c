@@ -15,29 +15,29 @@
 #define m_size 5000
 
 int main(int argc, char **argv) {
-	char buf[m_size];
+    char buf[m_size];
 
     int fs[2]; // 1 --> 2
     int st[2]; // 2 --> 3
     if (pipe(fs) < 0) {
-        printf("Can\'t open pipe\n");
+        printf("Error opening pipe\n");
         exit(-1);
     }
     if (pipe(st) < 0) {
-        printf("Can\'t open pipe\n");
+        printf("Error opening pipe\n");
         exit(-1);
     }
 
     int size;
     int process1 = fork();
     if (process1 == -1) {
-        printf("Failed fork\n");
+        printf("fork() failed\n");
         exit(-1);
     } else if (process1 == 0) {
         int process2 = fork();
 
         if (process2 == -1) {
-            printf("Failed fork\n");
+            printf("fork() failed\n");
             exit(-1);
         } else if (process2 == 0) {
         
@@ -56,18 +56,18 @@ int main(int argc, char **argv) {
             int out = open(argv[2], O_WRONLY | O_CREAT, 0666);
 
             if (out < 0) {
-                printf("Can\'t open file\n");
+                printf("Error opening file\n");
                 exit(-1);
             }
             
             size = write(out, buf, strlen(buf));
             if (size != strlen(buf)) {
-                printf("Can\'t write all string\n");
+                printf("Error writing\n");
                 exit(-1);
             }
 
             if (close(out) < 0) {
-                printf("Can\'t close file\n");
+                printf("Error closing file\n");
                 exit(-1);
             }
         } else {
@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
             size = write(st[1], buf, m_size);
 
             if (size != m_size) {
-                printf("Can\'t write all string to pipe\n");
+                printf("Error writing to pipe\n");
                 exit(-1);
             }
 
@@ -116,19 +116,19 @@ int main(int argc, char **argv) {
       
         int input = open(argv[1], O_RDONLY, 0666);
         if (input < 0) {
-            printf("Can\'t open file\n");
+            printf("Error opening file\n");
             exit(-1);
         }
         size = read(input, buf, m_size);
 
         if (close(input) < 0) {
-            printf("Can\'t close file\n");
+            printf("Error closing file\n");
         }
 
         size = write(fs[1], buf, m_size);
 
         if (size != m_size) {
-            printf("Can\'t write all string to pipe");
+            printf("Error writing to pipe");
             exit(-1);
         }
 
