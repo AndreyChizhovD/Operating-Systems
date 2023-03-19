@@ -83,11 +83,11 @@ int main(int argc, char **argv) {
                 exit(-1);
             }
 
-			char *token, *last;
-			token = strtok(buf, "\n");
-			char *buf1 = token;
-			token = strtok(NULL, "\n");
-			buf[0] = *buf1;
+	    char *token, *last;
+       	    token = strtok(buf, "\n");
+	    char *buf1 = token;
+	    token = strtok(NULL, "\n");
+	    buf[0] = *buf1;
             str_diff(buf, token);
             
             if (close(fs[0]) < 0) {
