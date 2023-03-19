@@ -30,10 +30,10 @@ void str_diff(char *str1, char *str2) {
         }
     }
 
-	char res[m_size] = " ";
-	strcat(res, first);
-	strcat(res, "\n");
-	strcat(res, second);
+    char res[m_size] = " ";
+    strcat(res, first);
+    strcat(res, "\n");
+    strcat(res, second);
 
     memset(str1, 0, m_size);
     strcpy(str1, res);
