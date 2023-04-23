@@ -29,6 +29,11 @@ void free_shared_data(shared_data *data) {
     munmap(data, sizeof(shared_data));
 }
 
+void signal_handler(int sigint) {
+    printf("Exiting program %d...\n\n", sigint);
+    exit(sigint);
+}
+
 int check_pin(int stage, int is_ok, shared_data *data) {
     if (is_ok == 0) {
         return 0;
@@ -53,11 +58,6 @@ int check_pin(int stage, int is_ok, shared_data *data) {
         }
     }
     return 1;
-}
-
-void signal_handler(int sigint) {
-    printf("Exiting program %d...\n\n", sigint);
-    exit(sigint);
 }
 
 int main() {
