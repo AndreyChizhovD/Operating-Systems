@@ -6,9 +6,9 @@
 #include <netinet/in.h>
 
 int main(int argc, char *argv[]) {
-    int server, client_1, client_2; // sockets
+    int client_1, client_2; // sockets
 
-    server = socket(PF_INET, SOCK_STREAM, 0);
+    int server = socket(PF_INET, SOCK_STREAM, 0); // server socket
     if (server == -1) {
         exit(1);
     }
